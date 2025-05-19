@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button/button";
-import { StrvLogo } from "@/components/ui/icons/strv-logo";
-import { Link } from "@tanstack/react-router";
+import { Link } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button/button'
+import { StrvLogo } from '@/components/ui/icons/strv-logo'
 
 const Header = () => {
-  const isLoggedIn = true;
+  // const isLoggedIn = true
 
-  if (!isLoggedIn) {
-    return null;
-  }
+  // if (!isLoggedIn) {
+  //   return null
+  // }
 
   return (
     <header className="w-full py-2 sm:py-4">
@@ -25,7 +25,7 @@ const Header = () => {
         <Button className="capitalize">sign out</Button>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export { Header };
+export { Header }
