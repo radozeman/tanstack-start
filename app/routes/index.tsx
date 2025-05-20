@@ -6,10 +6,5 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
-  return (
-    <div>
-      Hello "/"
-      <Button variant="ghost">CLICK ME</Button>
-    </div>
-  )
+  return <Button onClick={() => null}>SIGN IN TO GITHUB</Button>
 }
