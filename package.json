@@ -10,19 +10,25 @@
     "start": "vinxi start",
     "lint": "eslint . --config eslint.config.js",
     "lint:fix": "eslint . --config eslint.config.js --fix",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "drizzle-generate": "pnpm exec drizzle-kit generate",
+    "drizzle-migrate": "pnpm exec drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.6.5",
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
     "@radix-ui/react-slot": "^1.2.2",
     "@tailwindcss/postcss": "^4.1.7",
     "@tanstack/react-router": "^1.120.5",
     "@tanstack/react-start": "^1.120.5",
+    "better-auth": "^1.2.8",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.43.1",
     "lucide-react": "^0.511.0",
     "postcss": "^8.5.3",
     "react": "^19.1.0",
@@ -30,7 +36,8 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "tw-animate-css": "^1.3.0",
-    "vinxi": "^0.5.6"
+    "vinxi": "^0.5.6",
+    "ws": "^8.18.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
@@ -38,9 +45,11 @@
     "@tanstack/eslint-plugin-router": "^1.115.0",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
+    "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^8.32.1",
     "@typescript-eslint/parser": "^8.32.1",
     "@vitejs/plugin-react": "^4.4.1",
+    "drizzle-kit": "^0.31.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-typescript": "^4.3.5",
@@ -50,6 +59,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "prettier": "3.5.3",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.1",
     "vite-tsconfig-paths": "^5.1.4"
