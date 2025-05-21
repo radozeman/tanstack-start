@@ -11,15 +11,15 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
+import { Route as appIndexImport } from './routes/(app)/index'
 import { Route as authSigninIndexImport } from './routes/(auth)/signin/index'
 import { Route as appEventsIndexImport } from './routes/(app)/events/index'
 import { Route as appEventsEventIdImport } from './routes/(app)/events/$eventId'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: '/',
+const appIndexRoute = appIndexImport.update({
+  id: '/(app)/',
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
@@ -46,11 +46,11 @@ const appEventsEventIdRoute = appEventsEventIdImport.update({
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/(app)/': {
+      id: '/(app)/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+      preLoaderRoute: typeof appIndexImport
       parentRoute: typeof rootRoute
     }
     '/(app)/events/$eventId': {
@@ -80,14 +80,14 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof appIndexRoute
   '/events/$eventId': typeof appEventsEventIdRoute
   '/events': typeof appEventsIndexRoute
   '/signin': typeof authSigninIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/': typeof appIndexRoute
   '/events/$eventId': typeof appEventsEventIdRoute
   '/events': typeof appEventsIndexRoute
   '/signin': typeof authSigninIndexRoute
@@ -95,7 +95,7 @@ export interface FileRoutesByTo {
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
+  '/(app)/': typeof appIndexRoute
   '/(app)/events/$eventId': typeof appEventsEventIdRoute
   '/(app)/events/': typeof appEventsIndexRoute
   '/(auth)/signin/': typeof authSigninIndexRoute
@@ -108,7 +108,7 @@ export interface FileRouteTypes {
   to: '/' | '/events/$eventId' | '/events' | '/signin'
   id:
     | '__root__'
-    | '/'
+    | '/(app)/'
     | '/(app)/events/$eventId'
     | '/(app)/events/'
     | '/(auth)/signin/'
@@ -116,14 +116,14 @@ export interface FileRouteTypes {
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  appIndexRoute: typeof appIndexRoute
   appEventsEventIdRoute: typeof appEventsEventIdRoute
   appEventsIndexRoute: typeof appEventsIndexRoute
   authSigninIndexRoute: typeof authSigninIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  appIndexRoute: appIndexRoute,
   appEventsEventIdRoute: appEventsEventIdRoute,
   appEventsIndexRoute: appEventsIndexRoute,
   authSigninIndexRoute: authSigninIndexRoute,
@@ -139,14 +139,14 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
+        "/(app)/",
         "/(app)/events/$eventId",
         "/(app)/events/",
         "/(auth)/signin/"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/(app)/": {
+      "filePath": "(app)/index.tsx"
     },
     "/(app)/events/$eventId": {
       "filePath": "(app)/events/$eventId.tsx"

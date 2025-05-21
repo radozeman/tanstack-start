@@ -1,14 +1,9 @@
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button/button'
 import { StrvLogo } from '@/components/ui/icons/strv-logo'
+import { authClient } from '@/features/auth/client'
 
 const Header = () => {
-  // const isLoggedIn = true
-
-  // if (!isLoggedIn) {
-  //   return null
-  // }
-
   return (
     <header className="w-full py-2 sm:py-4">
       <nav className="flex justify-between items-center">

@@ -4,7 +4,7 @@ import { reactStartCookies } from 'better-auth/react-start'
 import { db } from '@/db'
 import * as schema from '@/db/schema'
 
-export const auth = betterAuth({
+const authServer = betterAuth({
   socialProviders: {
     github: {
       clientId: process.env.GITHUB_CLIENT_ID as string,
@@ -17,3 +17,5 @@ export const auth = betterAuth({
   }),
   plugins: [reactStartCookies()],
 })
+
+export { authServer }

@@ -3,7 +3,7 @@ import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-r
 import type { ReactNode } from 'react'
 
 import appCss from '@/styles/app.css?url'
-import { Header } from '@/components/header'
+import { Header } from '@/components/Header'
 
 export const Route = createRootRoute({
   head: () => ({
